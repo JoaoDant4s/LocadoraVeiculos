@@ -1,6 +1,6 @@
 package model;
 
-public abstract class Client {
+public class Client {
     private final String name;
     private final String fiscalDocument;
 
@@ -9,7 +9,7 @@ public abstract class Client {
         this.fiscalDocument = fiscalDocument;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 

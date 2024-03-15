@@ -6,11 +6,13 @@ public class Rent {
     private final String local;
     private final LocalDateTime localDateTime;
     private final String clientFiscalDocument;
+    private final String vehicleLicensePlate;
 
-    public Rent(String local, String clientFiscalDocument) {
+    public Rent(String local, String clientFiscalDocument, String vehicleLicensePlate) {
         this.local = local;
         this.localDateTime = LocalDateTime.now();
         this.clientFiscalDocument = clientFiscalDocument;
+        this.vehicleLicensePlate = vehicleLicensePlate;
     }
 
     public String getLocal() {
@@ -24,5 +26,8 @@ public class Rent {
     public String getClientFiscalDocument() {
         return clientFiscalDocument;
     }
-    
+
+    public String getVehicleLicensePlate() {
+        return vehicleLicensePlate;
+    }
 }
