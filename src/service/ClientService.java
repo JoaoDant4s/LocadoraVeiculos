@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import model.Client;
 import repository.ClientRepository;
 import repository.Repository;
@@ -18,6 +20,14 @@ public class ClientService{
         if (client.getName() == null || client.getFiscalDocument() == null) {
             throw new Exception("Dados do cliente são inconsistentes");
         }
+    }
+
+    public List<Client> getAllClients(){
+        return clientRepository.getAll();
+    }
+
+    public Client getClientByFiscalDocument(String fiscalDocument){
+        return clientRepository.getByKey(fiscalDocument);
     }
 
     public void createClient(Client client) throws Exception {

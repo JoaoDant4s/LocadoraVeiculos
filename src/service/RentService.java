@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import model.Rent;
 import repository.RentRepository;
 import repository.Repository;
@@ -24,12 +26,11 @@ public class RentService{
         rentRepository.save(rent);
     }
 
-    public void rentVehicleForIndividual(Rent rent) throws Exception {
-        validate(rent);
-        createRent(rent);
+    public List<Rent> getAllRents(){
+        return rentRepository.getAll();
     }
 
-    public void rentVehicleForLegalEntity(Rent rent) throws Exception {
+    public void rentVehicle(Rent rent) throws Exception {
         validate(rent);
         createRent(rent);
     }

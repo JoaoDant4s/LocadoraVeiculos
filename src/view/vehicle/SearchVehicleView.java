@@ -17,7 +17,7 @@ public class SearchVehicleView implements View{
         this.scan = Input.getInstance();
     }
 
-    private void printVehicles(List<Vehicle> vehicles){
+    public void printVehicles(List<Vehicle> vehicles){
         System.out.println("Porte  | Placa   | Modelo   | Preço para alugar");
         for(Vehicle vehicle : vehicles){
             Double vehicleRentCost = vehicle.getDailyRentCost();
@@ -42,7 +42,7 @@ public class SearchVehicleView implements View{
             System.out.println("---Veículos encontrados---");
             printVehicles(vehicles);
         } else {
-            System.out.println("Nenhum veículo encontrado");
+            System.err.println("Nenhum veículo encontrado");
         }
     }
 

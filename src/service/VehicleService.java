@@ -20,6 +20,10 @@ public class VehicleService{
         }
     }
 
+    public Vehicle getVehicleByLicensePlate(String licensePlate){
+        return vehicleRepository.getByKey(licensePlate);
+    }
+
     public void createVehicle(Vehicle vehicle) throws Exception {
         validate(vehicle);
         vehicleRepository.save(vehicle);
@@ -31,6 +35,10 @@ public class VehicleService{
         } else {
             throw new Exception("Veículo com a placa " + licensePlate + " não encontrado.");
         }
+    }
+
+    public List<Vehicle> getAllVehicles(){
+        return vehicleRepository.getAll();
     }
 
     public List<Vehicle> findVehiclesByName(String name) throws Exception {

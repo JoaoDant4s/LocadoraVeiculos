@@ -27,7 +27,7 @@ public class NewVehicleView implements View{
         System.out.print("Digite o modelo do veículo: ");
         String carModel = scan.nextLine();
         System.out.print("Digite a placa do veículo: ");
-        String licensePlate = scan.nextLine();
+        String licensePlate = scan.nextLine().trim().toUpperCase();
         System.out.println("1 - SUV\n2 - Médio\n3 - Pequeno");
         System.out.print("Digite o porte do veículo: ");
         Integer size = scan.nextInt();

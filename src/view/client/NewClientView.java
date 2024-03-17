@@ -45,7 +45,7 @@ public class NewClientView implements View{
            newClient(client);
            System.out.println("Cliente " + client.getName() + " criado com sucesso!");
         } catch(Exception e){
-            System.out.println(e);
+            System.err.println(e);
         }
     }
 }

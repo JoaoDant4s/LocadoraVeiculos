@@ -1,6 +1,7 @@
 package view;
 
 import view.client.NewClientView;
+import view.rent.RentCarView;
 import view.vehicle.NewVehicleView;
 import view.vehicle.SearchVehicleView;
 
@@ -28,7 +29,7 @@ public class MainMenu extends AbstractMenu{
         switch (choice){
             case 1 -> new NewClientView().execute();
             case 2 -> new NewVehicleView().execute();
-            case 3 -> System.out.println("wip...");
+            case 3 -> new RentCarView().execute();
             case 4 -> System.out.println("wip...");
             case 5 -> System.out.println("wip...");
             case 6 -> System.out.println("wip...");
