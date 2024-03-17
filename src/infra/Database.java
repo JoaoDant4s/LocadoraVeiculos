@@ -1,6 +1,7 @@
 package infra;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Hashtable;
 import java.util.List;
 
@@ -37,7 +38,7 @@ public class Database {
 
     public static <T> List<T> getAllByClass(Class<T> clazz) {
         Hashtable<String, T> ht = getTable(clazz);
-        return new ArrayList<>(ht.values());
+        return Collections.unmodifiableList(new ArrayList<>(ht.values()));
     }
 
     public static <T> T getByClassAndId(Class<T> clazz, String identifier) {
