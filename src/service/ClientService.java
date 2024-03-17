@@ -4,14 +4,13 @@ import model.Client;
 import repository.ClientRepository;
 import repository.Repository;
 
-public class ClientService implements Service<Client> {
+public class ClientService{
     private Repository<String, Client> clientRepository;
 
     public ClientService() {
         this.clientRepository = new ClientRepository();
     }
 
-    @Override
     public void validate(Client client) throws Exception {
         if (client == null) {
             throw new Exception("Cliente nulo");

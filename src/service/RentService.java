@@ -4,14 +4,13 @@ import model.Rent;
 import repository.RentRepository;
 import repository.Repository;
 
-public class RentService implements Service<Rent>{
+public class RentService{
     private Repository<String, Rent> rentRepository;
 
     public RentService() {
         this.rentRepository = new RentRepository();
     }
 
-    @Override
     public void validate(Rent rent) throws Exception {
         if (rent == null) {
             throw new Exception("Aluguel nulo");
@@ -21,14 +20,18 @@ public class RentService implements Service<Rent>{
         }
     }
 
+    private void createRent(Rent rent) throws Exception{
+        rentRepository.save(rent);
+    }
+
     public void rentVehicleForIndividual(Rent rent) throws Exception {
         validate(rent);
-        rentRepository.save(rent);
+        createRent(rent);
     }
 
     public void rentVehicleForLegalEntity(Rent rent) throws Exception {
         validate(rent);
-        rentRepository.save(rent);
+        createRent(rent);
     }
 
     public void returnVehicleForIndividual(String rentId) throws Exception {

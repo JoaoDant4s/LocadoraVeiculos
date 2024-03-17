@@ -6,14 +6,13 @@ import model.Vehicle;
 import repository.Repository;
 import repository.VehicleRepository;
 
-public class VehicleService implements Service<Vehicle>{
+public class VehicleService{
     private Repository<String, Vehicle> vehicleRepository;
 
     public VehicleService() {
         this.vehicleRepository = new VehicleRepository();
     }
 
-    @Override
     public void validate(Vehicle vehicle) throws Exception{
         if(vehicle == null) throw new Exception("Veículo nulo");
         if(vehicle.getCarModel() == null || vehicle.getDailyRentCost() == null || vehicle.getLicensePlate() == null){
