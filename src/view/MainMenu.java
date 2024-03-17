@@ -2,6 +2,7 @@ package view;
 
 import view.client.NewClientView;
 import view.vehicle.NewVehicleView;
+import view.vehicle.SearchVehicleView;
 
 public class MainMenu extends AbstractMenu{
     public MainMenu(){
@@ -31,7 +32,7 @@ public class MainMenu extends AbstractMenu{
             case 4 -> System.out.println("wip...");
             case 5 -> System.out.println("wip...");
             case 6 -> System.out.println("wip...");
-            case 7 -> System.out.println("wip...");
+            case 7 -> new SearchVehicleView().execute();
             case 8 -> System.exit(1);
         }
         execute();

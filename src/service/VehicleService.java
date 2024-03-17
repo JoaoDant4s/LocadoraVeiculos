@@ -34,12 +34,12 @@ public class VehicleService{
     }
 
     public List<Vehicle> findVehiclesByName(String name) throws Exception {
-        if(name != null) throw new Exception("O modelo informado é nulo");
+        if(name == null) throw new Exception("O modelo informado é nulo");
         List<Vehicle> vehiclesFound = new ArrayList<>();
         List<Vehicle> allVehicles = vehicleRepository.getAll();
         
         for (Vehicle vehicle : allVehicles) {
-            if (vehicle.getCarModel().contains(name)) {
+            if (vehicle.getCarModel().trim().toLowerCase().contains(name.trim().toLowerCase())) {
                 vehiclesFound.add(vehicle);
             }
         }
