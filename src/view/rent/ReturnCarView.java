@@ -85,7 +85,7 @@ public class ReturnCarView implements View{
                 System.out.println("Veículo devolvido com sucesso!");
                 Integer daysToPay = rentService.daysToPay(rents.get(0).getLocalDateTime());
                 System.out.println("Dias decorridos: " + daysToPay);
-                Double totalToPay = rentService.calculateRentCost(vehicleService.getVehicleByLicensePlate(licensePlate), daysToPay);
+                Double totalToPay = rentService.calculateRentCost(vehicleService.getVehicleByLicensePlate(licensePlate), daysToPay, clientService.getClientByFiscalDocument(document));
                 System.out.println("Total a pagar: " + totalToPay);
             } else {
                 System.err.println("Nenhuma cadastrada para o cliente informado");

@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Client;
+import model.ClientType;
 import model.Rent;
 import model.Vehicle;
 import repository.RentRepository;
@@ -73,10 +75,20 @@ public class RentService{
         }
     }
 
-    public Double calculateRentCost(Vehicle vehicle, Integer daysToPay) throws Exception{
-        if(vehicle == null || daysToPay == null) throw new Exception("Dados inválidos");
+    public Double calculateRentCost(Vehicle vehicle, Integer daysToPay, Client client) throws Exception {
+        if (vehicle == null || daysToPay == null || client == null) {
+            throw new Exception("Dados inválidos");
+        }
 
-        return vehicle.getDailyRentCost() * daysToPay;
+        double totalCost = vehicle.getDailyRentCost() * daysToPay;
+
+        if (client.getType() == ClientType.PF && daysToPay > 5) {
+            totalCost *= 0.95;
+        } else if (client.getType() == ClientType.PJ && daysToPay > 3) {
+            totalCost *= 0.90;
+        }
+
+        return totalCost;
     }
 
     public void rentVehicle(Rent rent) throws Exception {
