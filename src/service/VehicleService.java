@@ -15,20 +15,14 @@ public class VehicleService implements Service<Vehicle>{
 
     @Override
     public void validate(Vehicle vehicle) throws Exception{
-        if(vehicle == null){
-            throw new Exception("Veículo nulo");
-        }
+        if(vehicle == null) throw new Exception("Veículo nulo");
         if(vehicle.getCarModel() == null || vehicle.getDailyRentCost() == null || vehicle.getLicensePlate() == null){
             throw new Exception("Dados do veículo são inconsistentes");
         }
     }
 
     public void createVehicle(Vehicle vehicle) throws Exception {
-        try {
-            validate(vehicle);
-        } catch (Exception e) {
-            throw e;
-        }
+        validate(vehicle);
         vehicleRepository.save(vehicle);
     }
 
@@ -40,7 +34,8 @@ public class VehicleService implements Service<Vehicle>{
         }
     }
 
-    public List<Vehicle> findVehiclesByName(String name) {
+    public List<Vehicle> findVehiclesByName(String name) throws Exception {
+        if(name != null) throw new Exception("O modelo informado é nulo");
         List<Vehicle> vehiclesFound = new ArrayList<>();
         List<Vehicle> allVehicles = vehicleRepository.getAll();
         
